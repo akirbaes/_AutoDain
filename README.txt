@@ -1,6 +1,3 @@
-# _AutoDain
-Some scripts to use with Dain-App
-
 INSTALL:
 
 Put this folder into DAIN_APP 
