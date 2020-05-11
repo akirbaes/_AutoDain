@@ -28,14 +28,14 @@ echo "Calling DAIN"
 
 call "%~dp0\extract_undithered_interpolation_(drop source file here).bat" "%%~dpnxA"
 
-python "%~dp0\DAINAUTO_utils\scale_image.py" "%%~dpnA interp.gif" -%interp%
+python "%~dp0\DAINAUTO_utils\scale_image.py" "%%~dpnA interp.gif" -%interp% +nearest
 
-python "%~dp0\DAINAUTO_utils\crop_image.py" "%%~dpnA interp_D%interp%.gif" -1
+python "%~dp0\DAINAUTO_utils\crop_image.py" "%%~dpnA interp_N%interp%.gif" -1
 
-"%~dp0\gifsicle.exe" --colors=255 "%%~dpnA interp_D%interp%+-1.gif" -o "%%~dpnA interp_D%interp%+-1.gif"
-"%~dp0\gifsicle.exe" -U "%%~dpnA interp_D%interp%+-1.gif" -o "%%~dpnA interp_D%interp%.gif"
+"%~dp0\gifsicle.exe" --colors=255 "%%~dpnA interp_N%interp%+-1.gif" -o "%%~dpnA interp_N%interp%+-1.gif"
+"%~dp0\gifsicle.exe" -U "%%~dpnA interp_N%interp%+-1.gif" -o "%%~dpnA interp_N%interp%.gif"
 
-del "%%~dpnA interp_D%interp%+-1.gif"
+del "%%~dpnA interp_N%interp%+-1.gif"
 
 cd "%~dp0"
 
